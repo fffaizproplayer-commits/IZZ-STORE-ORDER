@@ -258,4 +258,4 @@ document.getElementById("submitLinkBtn").addEventListener("click", async () => {
         verifyLinkStatus.textContent = "Gagal menghubungi server, coba lagi.";
     }
 });
-        
+                           
