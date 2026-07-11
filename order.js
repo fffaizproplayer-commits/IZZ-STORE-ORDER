@@ -25,7 +25,7 @@ const emailInput = document.getElementById("email");
 if (isPrivate) {
     emailField.classList.remove("hidden");
     emailInput.required = true;
-https://anne-lens-gate-spring.trycloudflare.com}
+}
 
 // ======================
 // PILIH METODE PEMBAYARAN
@@ -77,7 +77,7 @@ orderForm.addEventListener("submit", async (e) => {
     try {
         const res = await fetch(`${API_BASE}/api/order`, {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: { "Content-Type": "application/json", "Bypass-Tunnel-Reminder": "true" },
             body: JSON.stringify({ nama, whatsapp, produk, harga, metode, email }),
         });
 
@@ -137,7 +137,9 @@ function setProgress(status) {
 function startStatusPolling() {
     pollInterval = setInterval(async () => {
         try {
-            const res = await fetch(`${API_BASE}/api/order/${currentOrderId}`);
+            const res = await fetch(`${API_BASE}/api/order/${currentOrderId}`, {
+                headers: { "Bypass-Tunnel-Reminder": "true" },
+            });
             const data = await res.json();
             if (!data.success) return;
 
@@ -211,6 +213,7 @@ document.getElementById("uploadBuktiBtn").addEventListener("click", async () => 
     try {
         const res = await fetch(`${API_BASE}/api/order/${currentOrderId}/bukti`, {
             method: "POST",
+            headers: { "Bypass-Tunnel-Reminder": "true" },
             body: formData,
         });
 
@@ -241,7 +244,7 @@ document.getElementById("submitLinkBtn").addEventListener("click", async () => {
     try {
         const res = await fetch(`${API_BASE}/api/order/${currentOrderId}/verify-link`, {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: { "Content-Type": "application/json", "Bypass-Tunnel-Reminder": "true" },
             body: JSON.stringify({ link }),
         });
 
@@ -255,3 +258,4 @@ document.getElementById("submitLinkBtn").addEventListener("click", async () => {
         verifyLinkStatus.textContent = "Gagal menghubungi server, coba lagi.";
     }
 });
+        
