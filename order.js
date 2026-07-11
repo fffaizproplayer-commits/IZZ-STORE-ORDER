@@ -2,7 +2,7 @@
 // GANTI INI sesuai alamat backend kamu di VPS
 // contoh: "https://api.izzstore.com" atau "http://IP_VPS:3000"
 // ======================
-const API_BASE = "https://izzstoreptero.loca.lt";
+const API_BASE = "https://anne-lens-gate-spring.trycloudflare.com";
 
 // ======================
 // AMBIL DATA PRODUK DARI URL
@@ -25,7 +25,7 @@ const emailInput = document.getElementById("email");
 if (isPrivate) {
     emailField.classList.remove("hidden");
     emailInput.required = true;
-}
+https://anne-lens-gate-spring.trycloudflare.com}
 
 // ======================
 // PILIH METODE PEMBAYARAN
