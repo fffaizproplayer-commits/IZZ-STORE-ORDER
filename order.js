@@ -2,7 +2,7 @@
 // GANTI INI sesuai alamat backend kamu di VPS
 // contoh: "https://api.izzstore.com" atau "http://IP_VPS:3000"
 // ======================
-const API_BASE = "https://anne-lens-gate-spring.trycloudflare.com";
+const API_BASE = "https://evidence-magic-exhibition-food.trycloudflare.com";
 
 // ======================
 // AMBIL DATA PRODUK DARI URL
