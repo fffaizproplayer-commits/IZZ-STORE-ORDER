@@ -2,7 +2,7 @@
 // GANTI INI sesuai alamat backend kamu di VPS
 // contoh: "https://api.izzstore.com" atau "http://IP_VPS:3000"
 // ======================
-const API_BASE = "http://node.mypanelkenzyzz.pteroq.xyz:10489";
+const API_BASE = "https://izzstoreptero.loca.lt";
 
 // ======================
 // AMBIL DATA PRODUK DARI URL
