@@ -28,24 +28,10 @@ if (isPrivate) {
 }
 
 // ======================
-// PILIH METODE PEMBAYARAN
-// ======================
-let metode = "tripay";
-
-document.querySelectorAll(".metode-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-        document.querySelectorAll(".metode-btn").forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        metode = btn.dataset.metode;
-    });
-});
-
-// ======================
 // ELEMEN
 // ======================
 const orderForm = document.getElementById("orderForm");
 const orderResult = document.getElementById("orderResult");
-const tripayBox = document.getElementById("tripayBox");
 const manualBox = document.getElementById("manualBox");
 const verifyLinkBox = document.getElementById("verifyLinkBox");
 const doneBox = document.getElementById("doneBox");
@@ -78,7 +64,7 @@ orderForm.addEventListener("submit", async (e) => {
         const res = await fetch(`${API_BASE}/api/order`, {
             method: "POST",
             headers: { "Content-Type": "application/json", "Bypass-Tunnel-Reminder": "true" },
-            body: JSON.stringify({ nama, whatsapp, produk, harga, metode, email }),
+            body: JSON.stringify({ nama, whatsapp, produk, harga, email }),
         });
 
         const data = await res.json();
@@ -95,14 +81,6 @@ orderForm.addEventListener("submit", async (e) => {
 
         orderForm.classList.add("hidden");
         orderResult.classList.remove("hidden");
-
-        if (metode === "tripay" && data.payment) {
-            tripayBox.classList.remove("hidden");
-            document.getElementById("qrisImage").src = data.payment.qr_url || "";
-            document.getElementById("tripayLink").href = data.payment.checkout_url || "#";
-        } else {
-            manualBox.classList.remove("hidden");
-        }
 
         setProgress("pending");
         startStatusPolling();
@@ -160,7 +138,6 @@ function startStatusPolling() {
             } else if (order.status === "selesai") {
                 clearInterval(pollInterval);
                 statusText.classList.add("hidden");
-                tripayBox.classList.add("hidden");
                 manualBox.classList.add("hidden");
                 verifyLinkBox.classList.add("hidden");
                 doneBox.classList.remove("hidden");
@@ -258,4 +235,3 @@ document.getElementById("submitLinkBtn").addEventListener("click", async () => {
         verifyLinkStatus.textContent = "Gagal menghubungi server, coba lagi.";
     }
 });
-                           
