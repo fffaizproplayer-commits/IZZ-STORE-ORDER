@@ -1,0 +1,283 @@
+.order-section{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:140px 20px 60px;
+}
+
+.order-box{
+    width:100%;
+    max-width:460px;
+
+    background:var(--card);
+    border:1px solid var(--border);
+    backdrop-filter:blur(20px);
+
+    border-radius:22px;
+    padding:34px;
+}
+
+.order-box h1{
+    font-size:26px;
+    margin-bottom:6px;
+}
+
+.order-sub{
+    color:var(--muted);
+    font-size:13px;
+    margin-bottom:24px;
+}
+
+#orderForm label{
+    display:block;
+    font-size:13px;
+    color:var(--muted);
+    margin:14px 0 6px;
+}
+
+#orderForm input{
+    width:100%;
+    padding:12px 14px;
+    border-radius:12px;
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.04);
+    color:var(--text);
+    font-size:14px;
+}
+
+#orderForm input:focus{
+    outline:none;
+    border-color:var(--primary-light);
+}
+
+.metode-pilihan{
+    display:flex;
+    gap:10px;
+    margin-top:8px;
+}
+
+.metode-btn{
+    flex:1;
+    padding:12px 10px;
+    border-radius:12px;
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.03);
+    color:var(--muted);
+    font-size:13px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.metode-btn i{
+    margin-right:6px;
+}
+
+.metode-btn.active{
+    border-color:var(--primary-light);
+    color:var(--text);
+    background:rgba(255,59,87,.12);
+}
+
+.order-submit{
+    width:100%;
+    margin-top:22px;
+    border:none;
+    cursor:pointer;
+    font-size:15px;
+}
+
+.order-result{
+    margin-top:10px;
+}
+
+.order-result.hidden,
+.hidden{
+    display:none!important;
+}
+
+.order-id-box{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.order-id-box span{
+    color:var(--muted);
+    font-size:13px;
+}
+
+.order-id-box h2{
+    font-family:var(--font-display);
+    color:var(--gold);
+    font-size:28px;
+    letter-spacing:.1em;
+}
+
+#tripayBox,
+#manualBox{
+    text-align:center;
+}
+
+#tripayBox p,
+#manualBox p{
+    color:var(--muted);
+    font-size:13px;
+    margin-bottom:14px;
+}
+
+#qrisImage{
+    width:220px;
+    height:220px;
+    object-fit:contain;
+    background:#fff;
+    border-radius:16px;
+    padding:10px;
+    margin-bottom:16px;
+}
+
+.rekening-box{
+    background:rgba(255,255,255,.04);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:14px;
+    margin-bottom:16px;
+}
+
+.status-text{
+    margin-top:16px;
+    font-weight:600;
+    color:var(--primary-light);
+}
+
+#manualBox input[type="file"]{
+    width:100%;
+    margin-bottom:14px;
+    color:var(--muted);
+    font-size:13px;
+}
+
+#uploadStatus{
+    margin-top:12px;
+    font-size:13px;
+    color:var(--gold);
+}
+
+/* PROGRESS BAR */
+
+.progress-bar{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:8px 0 22px;
+}
+
+.progress-step{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:6px;
+    opacity:.35;
+    transition:.3s;
+}
+
+.progress-step i{
+    width:34px;
+    height:34px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(255,255,255,.05);
+    border:1px solid var(--border);
+    font-size:14px;
+}
+
+.progress-step span{
+    font-size:11px;
+    color:var(--muted);
+    white-space:nowrap;
+}
+
+.progress-step.active{
+    opacity:1;
+}
+
+.progress-step.active i{
+    background:var(--primary);
+    border-color:var(--primary);
+    color:#fff;
+}
+
+.progress-step.done i{
+    background:#22c55e;
+    border-color:#22c55e;
+    color:#fff;
+}
+
+.progress-line{
+    width:40px;
+    height:2px;
+    background:var(--border);
+    margin:0 6px 20px;
+}
+
+/* VERIFY LINK BOX (AM Private) */
+
+#verifyLinkBox{
+    text-align:center;
+    margin-top:10px;
+}
+
+#verifyLinkBox p{
+    color:var(--muted);
+    font-size:13px;
+    margin-bottom:12px;
+}
+
+#verifyLinkInput{
+    width:100%;
+    padding:12px 14px;
+    border-radius:12px;
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.04);
+    color:var(--text);
+    font-size:13px;
+    margin-bottom:12px;
+}
+
+#verifyLinkStatus{
+    margin-top:10px;
+    font-size:13px;
+    color:var(--gold);
+}
+
+/* DONE BOX */
+
+.done-box{
+    text-align:center;
+    padding:10px 0 4px;
+}
+
+.done-box i{
+    font-size:42px;
+    color:#22c55e;
+    margin-bottom:12px;
+}
+
+.done-box h3{
+    margin-bottom:8px;
+}
+
+.done-box p{
+    color:var(--gold);
+    font-weight:600;
+    font-size:15px;
+}
+
+.done-note{
+    color:var(--muted)!important;
+    font-weight:400!important;
+    font-size:12px!important;
+    margin-top:8px;
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Order - IZZ STORE</title>
+
+<link rel="icon" href="favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="order.css">
+
+</head>
+<body>
+
+<header class="navbar">
+
+<div class="logo">
+<img src="logo.png">
+<span>IZZ STORE</span>
+</div>
+
+<nav>
+<a href="index.html">Kembali ke Home</a>
+</nav>
+
+</header>
+
+<section class="order-section">
+
+<div class="order-box">
+
+<h1>Form Order</h1>
+<p class="order-sub">Isi data di bawah, produk sudah otomatis terisi dari halaman sebelumnya.</p>
+
+<!-- STEP 1: DATA -->
+<form id="orderForm">
+
+  <label>Produk</label>
+  <input type="text" id="produk" readonly>
+
+  <label>Harga</label>
+  <input type="text" id="hargaDisplay" readonly>
+
+  <label>Nama Kamu</label>
+  <input type="text" id="nama" placeholder="Nama lengkap" required>
+
+  <label>Nomor WhatsApp</label>
+  <input type="text" id="whatsapp" placeholder="08xxxxxxxxxx" required>
+
+  <div id="emailField" class="hidden">
+    <label>Email Kamu (buat dikirimin link verifikasi Alight)</label>
+    <input type="email" id="email" placeholder="emailkamu@gmail.com">
+  </div>
+
+  <label>Metode Pembayaran</label>
+  <div class="metode-pilihan">
+    <button type="button" class="metode-btn active" data-metode="tripay">
+      <i class="fas fa-qrcode"></i> QRIS Otomatis
+    </button>
+    <button type="button" class="metode-btn" data-metode="manual">
+      <i class="fas fa-money-bill-transfer"></i> Transfer Manual
+    </button>
+  </div>
+
+  <button type="submit" class="btn-primary order-submit">Buat Order</button>
+
+</form>
+
+<!-- STEP 2: HASIL ORDER -->
+<div id="orderResult" class="order-result hidden">
+
+  <div class="order-id-box">
+    <span>ID Order Kamu</span>
+    <h2 id="orderIdText">-</h2>
+  </div>
+
+  <!-- PROGRESS BAR -->
+  <div class="progress-bar">
+    <div class="progress-step" data-step="pending"><i class="fas fa-clock"></i><span>Menunggu Bayar</span></div>
+    <div class="progress-line"></div>
+    <div class="progress-step" data-step="lunas"><i class="fas fa-check"></i><span>Terbayar</span></div>
+    <div class="progress-line"></div>
+    <div class="progress-step" data-step="selesai"><i class="fas fa-gift"></i><span>Akun Siap</span></div>
+  </div>
+
+  <div id="tripayBox" class="hidden">
+    <p>Scan QRIS di bawah buat bayar. Status di atas bakal jalan otomatis begitu pembayaran masuk.</p>
+    <img id="qrisImage" src="" alt="QRIS">
+    <a id="tripayLink" href="#" target="_blank" class="btn-secondary">Buka Halaman Pembayaran</a>
+  </div>
+
+  <div id="manualBox" class="hidden">
+    <p>Transfer ke rekening/e-wallet berikut, lalu upload bukti transfer di bawah:</p>
+    <div class="rekening-box">
+      <p><b>DANA / OVO / GoPay:</b> 0831-5497-5704 (a.n IZZ STORE)</p>
+    </div>
+
+    <label>Upload Bukti Transfer</label>
+    <input type="file" id="buktiFile" accept="image/*">
+    <button type="button" id="uploadBuktiBtn" class="btn-primary">Upload Bukti</button>
+    <p id="uploadStatus"></p>
+  </div>
+
+  <p id="statusText" class="status-text">Status: menunggu pembayaran...</p>
+
+  <!-- MUNCUL SETELAH LUNAS, KHUSUS AM PREMIUM PRIVATE -->
+  <div id="verifyLinkBox" class="hidden">
+    <p>Link verifikasi udah kami kirim ke email kamu. Cek inbox, salin link-nya, terus tempel di sini:</p>
+    <input type="text" id="verifyLinkInput" placeholder="Tempel link verifikasi di sini">
+    <button type="button" id="submitLinkBtn" class="btn-primary">Verifikasi Sekarang</button>
+    <p id="verifyLinkStatus"></p>
+  </div>
+
+  <!-- MUNCUL SETELAH SELESAI -->
+  <div id="doneBox" class="hidden">
+    <div class="done-box">
+      <i class="fas fa-circle-check"></i>
+      <h3>Akun Kamu Sudah Jadi!</h3>
+      <p id="doneEmail"></p>
+      <p class="done-note"></p>
+    </div>
+  </div>
+
+</div>
+
+</div>
+
+</section>
+
+<script src="order.js"></script>
+
+</body>
+</html>
